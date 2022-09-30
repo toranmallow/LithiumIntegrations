@@ -1,6 +1,24 @@
+---------------[Changes to Picklock's base setup]---------------
+-- Enable productivity modules for lithium based intermediate products
+
+enable_productivity_recipes = {
+"pi-lipo-cell", "pi-lithium-plate", "pi-lithium-7-pellet", "pi-lithium-6-pellet"
+}
+
+for k, v in pairs(data.raw.module) do
+  if v.name:find("productivity%-module") and v.limitation then
+    for _, recipe in ipairs(enable_productivity_recipes) do
+      if data.raw["recipe"][recipe] then
+        table.insert(v.limitation, recipe)
+      end
+    end
+  end
+end
+
+---------------[Electric-Weapons Integration]---------------
+-- Replace regular batteries with lithium polymer cells
 if (mods or script.active_mods)["Electric-Weapons"] then
    data:extend{
-
       {
 	 type = "recipe",
 	 name = "sw-electric-gun",
