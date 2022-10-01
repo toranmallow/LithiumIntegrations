@@ -33,8 +33,6 @@ if (mods or script.active_mods)["Electric-Weapons"] then
 	    },
 	 result = "sw-electric-gun"
       },
-
-      
       {
 	 type = "recipe",
 	 name = "sw-electric-rifle",
@@ -64,7 +62,6 @@ if (mods or script.active_mods)["Electric-Weapons"] then
 	    },
 	 result = "sw-electric-bomber"
       },
-      
       {
 	 type = "recipe",
 	 name = "sw-electric-gun-cell",
@@ -79,7 +76,6 @@ if (mods or script.active_mods)["Electric-Weapons"] then
 	    },
 	 result = "sw-electric-gun-cell"
       },
-
       {
 	 type = "recipe",
 	 name = "sw-electric-gun-cell-wsticker",
@@ -93,7 +89,6 @@ if (mods or script.active_mods)["Electric-Weapons"] then
 	    },
 	 result = "sw-electric-gun-cell-wsticker"
       },
-      
       {
 	 type = "recipe",
 	 name = "sw-shock-bomb-ammo-1",
@@ -108,7 +103,6 @@ if (mods or script.active_mods)["Electric-Weapons"] then
 	    },
 	 result = "sw-shock-bomb-ammo-1"
       },
-      
       
       {
 	 type = "recipe",
@@ -125,8 +119,6 @@ if (mods or script.active_mods)["Electric-Weapons"] then
 	    },
 	 result = "sw-shock-bomb-ammo-2"
       }, 
-      
-      
       {
 	 type = "recipe",
 	 name = "sw-shock-bomb-ammo-3",
@@ -142,8 +134,6 @@ if (mods or script.active_mods)["Electric-Weapons"] then
 	    },
 	 result = "sw-shock-bomb-ammo-3"
       }, 
-      
-
       {
 	 type = "recipe",
 	 name = "sw-electric-rounds-magazine",
@@ -156,11 +146,6 @@ if (mods or script.active_mods)["Electric-Weapons"] then
 	    },
 	 result = "sw-electric-rounds-magazine"
       }, 
-      
-
-
-
-
       {
 	 type = "recipe",
 	 name = "sw-electric-turret",
@@ -176,9 +161,6 @@ if (mods or script.active_mods)["Electric-Weapons"] then
 	    },
 	 result = "sw-electric-turret"
       },
-      
-
-
       {
 	 type = "recipe",
 	 name = "sw-electric-stick-turret",
@@ -192,7 +174,95 @@ if (mods or script.active_mods)["Electric-Weapons"] then
 	    },
 	 result = "sw-electric-stick-turret"
       },
+   }
+end
 
-
+---------------[Advanced-Electric-Revamped-v16 Integration]---------------
+-- Replace regular accumulators with lithium polymer accumulators
+-- Replace regular batteries with lithium polymer cells
+-- Add some lithium polymer cell inputs to solar panelsa
+if (mods or script.active_mods)["Advanced-Electric-Revamped-v16"] then
+   data:extend{
+      {
+	 type = "recipe",
+	 name = "advanced-accumulator",
+	 energy_required = 30,
+	 enabled = false,
+	 ingredients =
+	    {
+	       {"pi-lipo-accu", (settings.startup["advanced-electric-multiplier-advanced-accumulator"].value) + 1},
+	       {"iron-plate", 10},
+	       {"electronic-circuit", 5}
+	    },
+	 result = "advanced-accumulator"
+      },
+      -- {
+      -- 	 type = "recipe",
+      -- 	 name = "elite-accumulator",
+      -- 	 energy_required = 45,
+      -- 	 enabled = false,
+      -- 	 ingredients =
+      -- 	    {
+      -- 	       {"advanced-accumulator", (settings.startup["advanced-electric-multiplier-elite-accumulator"].value) / 10 + 2},
+      -- 	       {"iron-plate", 25},
+      -- 	       {"advanced-circuit", 10}
+      -- 	    },
+      -- 	 result = "elite-accumulator"
+      -- },
+      {
+	 type = "recipe",
+	 name = "ultimate-accumulator",
+	 energy_required = 60,
+	 enabled = false,
+	 ingredients =
+	    {
+	       {"elite-accumulator", (settings.startup["advanced-electric-multiplier-ultimate-accumulator"].value) / 100 + 5},
+	       {"steel-plate", 25},
+	       {"pi-lipo-cell", 25},
+	       {"processing-unit", 5}
+	    },
+	 result = "ultimate-accumulator"
+      },
+      -- {
+      -- 	 type = "recipe",
+      -- 	 name = "advanced-solar",
+      -- 	 energy_required = 30,
+      -- 	 enabled = false,
+      -- 	 ingredients =
+      -- 	    {
+      -- 	       {"steel-plate", 5},
+      -- 	       {"electronic-circuit", 5},
+      -- 	       {"solar-panel", (settings.startup["advanced-electric-multiplier-advanced-solar"].value) + 1}
+      -- 	    },
+      -- 	 result = "advanced-solar"
+      -- },
+      {
+	 type = "recipe",
+	 name = "elite-solar",
+	 energy_required = 45,
+	 enabled = false,
+	 ingredients =
+	    {
+	       {"steel-plate", 10},
+	       {"advanced-circuit", 5},
+	       {"pi-lipo-cell", 5},	       
+	       {"advanced-solar", (settings.startup["advanced-electric-multiplier-elite-solar"].value) / 10 + 2}
+	    },
+	 result = "elite-solar"
+      },
+      {
+	 type = "recipe",
+	 name = "ultimate-solar",
+	 energy_required = 60,
+	 enabled = false,
+	 ingredients =
+	    {
+	       {"steel-plate", 50},
+	       {"processing-unit", 25},
+	       {"pi-lipo-cell", 25},
+	       {"elite-solar", (settings.startup["advanced-electric-multiplier-ultimate-solar"].value) / 100 + 5}
+	    },
+	 result = "ultimate-solar"
+      }
    }
 end
