@@ -178,9 +178,10 @@ if (mods or script.active_mods)["Electric-Weapons"] then
 end
 
 ---------------[Advanced-Electric-Revamped-v16 Integration]---------------
--- Replace regular accumulators with lithium polymer accumulators
+-- Replace regular accumulators with LiPo accumulators
 -- Replace regular batteries with lithium polymer cells
 -- Add some lithium polymer cell inputs to solar panelsa
+-- Make LiPo accumulators upgrade to advanced accumulators
 if (mods or script.active_mods)["Advanced-Electric-Revamped-v16"] then
    data:extend{
       {
@@ -265,4 +266,7 @@ if (mods or script.active_mods)["Advanced-Electric-Revamped-v16"] then
 	 result = "ultimate-solar"
       }
    }
+
+   -- Insert LiPo accumulators into the upgrade path for Advanced Solar HR
+   data.raw["accumulator"]["pi-lipo-accu"].next_upgrade = "advanced-accumulator"
 end
