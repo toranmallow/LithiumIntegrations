@@ -197,19 +197,20 @@ if (mods or script.active_mods)["Advanced-Electric-Revamped-v16"] then
 	    },
 	 result = "advanced-accumulator"
       },
-      -- {
-      -- 	 type = "recipe",
-      -- 	 name = "elite-accumulator",
-      -- 	 energy_required = 45,
-      -- 	 enabled = false,
-      -- 	 ingredients =
-      -- 	    {
-      -- 	       {"advanced-accumulator", (settings.startup["advanced-electric-multiplier-elite-accumulator"].value) / 10 + 2},
-      -- 	       {"iron-plate", 25},
-      -- 	       {"advanced-circuit", 10}
-      -- 	    },
-      -- 	 result = "elite-accumulator"
-      -- },
+      {
+      	 type = "recipe",
+      	 name = "elite-accumulator",
+      	 energy_required = 45,
+      	 enabled = false,
+      	 ingredients =
+      	    {
+      	       {"advanced-accumulator", (settings.startup["advanced-electric-multiplier-elite-accumulator"].value) / 10 + 2},
+      	       {"iron-plate", 25},
+	       {"pi-lipo-cell", 20},
+      	       {"advanced-circuit", 10}
+      	    },
+      	 result = "elite-accumulator"
+      },
       {
 	 type = "recipe",
 	 name = "ultimate-accumulator",
@@ -218,9 +219,9 @@ if (mods or script.active_mods)["Advanced-Electric-Revamped-v16"] then
 	 ingredients =
 	    {
 	       {"elite-accumulator", (settings.startup["advanced-electric-multiplier-ultimate-accumulator"].value) / 100 + 5},
-	       {"steel-plate", 25},
+	       {"steel-plate", 50},
 	       {"pi-lipo-cell", 25},
-	       {"processing-unit", 5}
+	       {"processing-unit", 25}
 	    },
 	 result = "ultimate-accumulator"
       },
