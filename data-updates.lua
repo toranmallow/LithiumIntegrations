@@ -2,7 +2,7 @@
 -- Enable productivity modules for lithium based intermediate products
 
 enable_productivity_recipes = {
-"pi-lipo-cell", "pi-lithium-plate", "pi-lithium-7-pellet", "pi-lithium-6-pellet"
+"pi-lipo-cell", "pi-lithium-plate", "pi-lithium-7-pellet", "pi-lithium-6-pellet", "pi-graphite"
 }
 
 for k, v in pairs(data.raw.module) do
