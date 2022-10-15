@@ -1,20 +1,4 @@
 ---------------[Changes to Picklock's base setup]---------------
--- Enable productivity modules for lithium based intermediate products
-
-enable_productivity_recipes = {
-"pi-lipo-cell", "pi-lithium-plate", "pi-lithium-7-pellet", "pi-lithium-6-pellet", "pi-graphite"
-}
-
-for k, v in pairs(data.raw.module) do
-  if v.name:find("productivity%-module") and v.limitation then
-    for _, recipe in ipairs(enable_productivity_recipes) do
-      if data.raw["recipe"][recipe] then
-        table.insert(v.limitation, recipe)
-      end
-    end
-  end
-end
-
 -- Add alternate recipes for graphite
 data:extend{
    {
@@ -132,6 +116,21 @@ table.insert(data.raw["technology"]["pi-tech-lipo-accu"].effects, {type = "unloc
 table.insert(data.raw["technology"]["pi-tech-lipo-accu"].effects, {type = "unlock-recipe",recipe = "pi-graphite3"})
 table.insert(data.raw["technology"]["pi-tech-lipo-accu"].effects, {type = "unlock-recipe",recipe = "pi-graphite4"})
 table.insert(data.raw["technology"]["pi-tech-lipo-accu"].effects, {type = "unlock-recipe",recipe = "pi-graphite5"})
+
+-- Enable productivity modules for lithium based intermediate products
+enable_productivity_recipes = {
+"pi-lipo-cell", "pi-lithium-plate", "pi-lithium-7-pellet", "pi-lithium-6-pellet", "pi-graphite", "pi-graphite2", "pi-graphite3", "pi-graphite4", "pi-graphite5"
+}
+
+for k, v in pairs(data.raw.module) do
+  if v.name:find("productivity%-module") and v.limitation then
+    for _, recipe in ipairs(enable_productivity_recipes) do
+      if data.raw["recipe"][recipe] then
+        table.insert(v.limitation, recipe)
+      end
+    end
+  end
+end
 
 ---------------[Electric-Weapons Integration]---------------
 -- Replace regular batteries with lithium polymer cells
