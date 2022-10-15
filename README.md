@@ -4,6 +4,11 @@ A companion mod to [Picklock](https://mods.factorio.com/user/t_picklock)'s [Fact
 
 ![Thumbnail](thumbnail.png)
 
+## Changes to Base Mod
+
+* Enable using productivity modules in crafting various lithium and graphite intermediate products
+* Enable alternate recipes for creating graphite, including using petroleum gas, lubricant, light oil, or crude oil
+
 ## Supported Mod Integrations
 
 * [Electric Weapons](https://mods.factorio.com/mod/Electric-Weapons) - Replaces regular batteries in recipes with lithium polymer cells
@@ -15,4 +20,4 @@ A companion mod to [Picklock](https://mods.factorio.com/user/t_picklock)'s [Fact
 * [MFerrari](https://mods.factorio.com/user/MFerrari) - For his excellent Electric Weapons mod
 * [LsHallo](https://mods.factorio.com/user/LsHallo) - For his excellent Advanced Solar HR mod
 * [ZwerOxotnik](https://mods.factorio.com/user/ZwerOxotnik) - Select files borrowed from ZwerOxotnik's excellent [factorio-example-mod](https://github.com/ZwerOxotnik/factorio-example-mod)
-* [blakemw](https://mods.factorio.com/user/blakemw) - Select code borrowed from blakemw's [EnableProductivityModules](https://mods.factorio.com/mod/EnableProductivityModules) mod
+* [blakemw](https://mods.factorio.com/user/blakemw) - Select code borrowed from blakemw's excellent [EnableProductivityModules](https://mods.factorio.com/mod/EnableProductivityModules) mod

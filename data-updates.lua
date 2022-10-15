@@ -15,6 +15,124 @@ for k, v in pairs(data.raw.module) do
   end
 end
 
+-- Add alternate recipes for graphite
+data:extend{
+   {
+      type = "recipe",
+      name = "pi-graphite2",
+      category = "chemistry",
+      normal =
+	 {
+	    energy_required = 4,
+	    enabled = false,
+	    ingredients =
+	       {
+		  {type="fluid", name="petroleum-gas", amount=30},
+		  {"coal", 1}
+	       },
+	    result = "pi-graphite"
+	 },
+      expensive =
+	 {
+	    energy_required = 5,
+	    enabled = false,
+	    ingredients =
+	       {
+		  {type="fluid", name="petroleum-gas", amount=60},
+		  {"coal", 2}
+	       },
+	    result = "pi-graphite"
+	 }  
+   },
+   {
+      type = "recipe",
+      name = "pi-graphite3",
+      category = "chemistry",
+      normal =
+	 {
+	    energy_required = 4,
+	    enabled = false,
+	    ingredients =
+	       {
+		  {type="fluid", name="lubricant", amount=10},
+		  {"coal", 1}
+	       },
+	    result = "pi-graphite"
+	 },
+      expensive =
+	 {
+	    energy_required = 5,
+	    enabled = false,
+	    ingredients =
+	       {
+		  {type="fluid", name="lubricant", amount=20},
+		  {"coal", 2}
+	       },
+	    result = "pi-graphite"
+	 }  
+   },
+   {
+      type = "recipe",
+      name = "pi-graphite4",
+      category = "chemistry",
+      normal =
+	 {
+	    energy_required = 4,
+	    enabled = false,
+	    ingredients =
+	       {
+		  {type="fluid", name="light-oil", amount=10},
+		  {"coal", 1}
+	       },
+	    result = "pi-graphite"
+	 },
+      expensive =
+	 {
+	    energy_required = 5,
+	    enabled = false,
+	    ingredients =
+	       {
+		  {type="fluid", name="light-oil", amount=20},
+		  {"coal", 2}
+	       },
+	    result = "pi-graphite"
+	 }  
+   },
+   {
+      type = "recipe",
+      name = "pi-graphite5",
+      category = "chemistry",
+      normal =
+	 {
+	    energy_required = 4,
+	    enabled = false,
+	    ingredients =
+	       {
+		  {type="fluid", name="crude-oil", amount=50},
+		  {"coal", 1}
+	       },
+	    result = "pi-graphite"
+	 },
+      expensive =
+	 {
+	    energy_required = 5,
+	    enabled = false,
+	    ingredients =
+	       {
+		  {type="fluid", name="crude-oil", amount=100},
+		  {"coal", 2}
+	       },
+	    result = "pi-graphite"
+	 }  
+   }
+
+}
+
+table.insert(data.raw["technology"]["pi-tech-lipo-accu"].effects, {type = "unlock-recipe",recipe = "pi-graphite2"})
+table.insert(data.raw["technology"]["pi-tech-lipo-accu"].effects, {type = "unlock-recipe",recipe = "pi-graphite3"})
+table.insert(data.raw["technology"]["pi-tech-lipo-accu"].effects, {type = "unlock-recipe",recipe = "pi-graphite4"})
+table.insert(data.raw["technology"]["pi-tech-lipo-accu"].effects, {type = "unlock-recipe",recipe = "pi-graphite5"})
+
 ---------------[Electric-Weapons Integration]---------------
 -- Replace regular batteries with lithium polymer cells
 if (mods or script.active_mods)["Electric-Weapons"] then
