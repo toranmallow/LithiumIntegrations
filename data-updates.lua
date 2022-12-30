@@ -1,140 +1,147 @@
 ---------------[Changes to Picklock's base setup]---------------
 -- Add alternate recipes for graphite
-data:extend{
-   {
-      type = "recipe",
-      name = "pi-graphite2",
-      category = "chemistry",
-      normal =
-	 {
-	    energy_required = 4,
-	    enabled = false,
-	    ingredients =
-	       {
-		  {type="fluid", name="petroleum-gas", amount=30},
-		  {"coal", 1}
-	       },
-	    result = "pi-graphite"
-	 },
-      expensive =
-	 {
-	    energy_required = 5,
-	    enabled = false,
-	    ingredients =
-	       {
-		  {type="fluid", name="petroleum-gas", amount=60},
-		  {"coal", 2}
-	       },
-	    result = "pi-graphite"
-	 }  
-   },
-   {
-      type = "recipe",
-      name = "pi-graphite3",
-      category = "chemistry",
-      normal =
-	 {
-	    energy_required = 4,
-	    enabled = false,
-	    ingredients =
-	       {
-		  {type="fluid", name="lubricant", amount=10},
-		  {"coal", 1}
-	       },
-	    result = "pi-graphite"
-	 },
-      expensive =
-	 {
-	    energy_required = 5,
-	    enabled = false,
-	    ingredients =
-	       {
-		  {type="fluid", name="lubricant", amount=20},
-		  {"coal", 2}
-	       },
-	    result = "pi-graphite"
-	 }  
-   },
-   {
-      type = "recipe",
-      name = "pi-graphite4",
-      category = "chemistry",
-      normal =
-	 {
-	    energy_required = 4,
-	    enabled = false,
-	    ingredients =
-	       {
-		  {type="fluid", name="light-oil", amount=10},
-		  {"coal", 1}
-	       },
-	    result = "pi-graphite"
-	 },
-      expensive =
-	 {
-	    energy_required = 5,
-	    enabled = false,
-	    ingredients =
-	       {
-		  {type="fluid", name="light-oil", amount=20},
-		  {"coal", 2}
-	       },
-	    result = "pi-graphite"
-	 }  
-   },
-   {
-      type = "recipe",
-      name = "pi-graphite5",
-      category = "chemistry",
-      normal =
-	 {
-	    energy_required = 4,
-	    enabled = false,
-	    ingredients =
-	       {
-		  {type="fluid", name="crude-oil", amount=50},
-		  {"coal", 1}
-	       },
-	    result = "pi-graphite"
-	 },
-      expensive =
-	 {
-	    energy_required = 5,
-	    enabled = false,
-	    ingredients =
-	       {
-		  {type="fluid", name="crude-oil", amount=100},
-		  {"coal", 2}
-	       },
-	    result = "pi-graphite"
-	 }  
+if settings.startup["li-alt-graphite"].value then
+
+   data:extend{
+      {
+	 type = "recipe",
+	 name = "pi-graphite2",
+	 category = "chemistry",
+	 normal =
+	    {
+	       energy_required = 4,
+	       enabled = false,
+	       ingredients =
+		  {
+		     {type="fluid", name="petroleum-gas", amount=30},
+		     {"coal", 1}
+		  },
+	       result = "pi-graphite"
+	    },
+	 expensive =
+	    {
+	       energy_required = 5,
+	       enabled = false,
+	       ingredients =
+		  {
+		     {type="fluid", name="petroleum-gas", amount=60},
+		     {"coal", 2}
+		  },
+	       result = "pi-graphite"
+	    }  
+      },
+      {
+	 type = "recipe",
+	 name = "pi-graphite3",
+	 category = "chemistry",
+	 normal =
+	    {
+	       energy_required = 4,
+	       enabled = false,
+	       ingredients =
+		  {
+		     {type="fluid", name="lubricant", amount=10},
+		     {"coal", 1}
+		  },
+	       result = "pi-graphite"
+	    },
+	 expensive =
+	    {
+	       energy_required = 5,
+	       enabled = false,
+	       ingredients =
+		  {
+		     {type="fluid", name="lubricant", amount=20},
+		     {"coal", 2}
+		  },
+	       result = "pi-graphite"
+	    }  
+      },
+      {
+	 type = "recipe",
+	 name = "pi-graphite4",
+	 category = "chemistry",
+	 normal =
+	    {
+	       energy_required = 4,
+	       enabled = false,
+	       ingredients =
+		  {
+		     {type="fluid", name="light-oil", amount=10},
+		     {"coal", 1}
+		  },
+	       result = "pi-graphite"
+	    },
+	 expensive =
+	    {
+	       energy_required = 5,
+	       enabled = false,
+	       ingredients =
+		  {
+		     {type="fluid", name="light-oil", amount=20},
+		     {"coal", 2}
+		  },
+	       result = "pi-graphite"
+	    }  
+      },
+      {
+	 type = "recipe",
+	 name = "pi-graphite5",
+	 category = "chemistry",
+	 normal =
+	    {
+	       energy_required = 4,
+	       enabled = false,
+	       ingredients =
+		  {
+		     {type="fluid", name="crude-oil", amount=50},
+		     {"coal", 1}
+		  },
+	       result = "pi-graphite"
+	    },
+	 expensive =
+	    {
+	       energy_required = 5,
+	       enabled = false,
+	       ingredients =
+		  {
+		     {type="fluid", name="crude-oil", amount=100},
+		     {"coal", 2}
+		  },
+	       result = "pi-graphite"
+	    }  
+      }
+
    }
 
-}
+   table.insert(data.raw["technology"]["pi-tech-lipo-accu"].effects, {type = "unlock-recipe",recipe = "pi-graphite2"})
+   table.insert(data.raw["technology"]["pi-tech-lipo-accu"].effects, {type = "unlock-recipe",recipe = "pi-graphite3"})
+   table.insert(data.raw["technology"]["pi-tech-lipo-accu"].effects, {type = "unlock-recipe",recipe = "pi-graphite4"})
+   table.insert(data.raw["technology"]["pi-tech-lipo-accu"].effects, {type = "unlock-recipe",recipe = "pi-graphite5"})
 
-table.insert(data.raw["technology"]["pi-tech-lipo-accu"].effects, {type = "unlock-recipe",recipe = "pi-graphite2"})
-table.insert(data.raw["technology"]["pi-tech-lipo-accu"].effects, {type = "unlock-recipe",recipe = "pi-graphite3"})
-table.insert(data.raw["technology"]["pi-tech-lipo-accu"].effects, {type = "unlock-recipe",recipe = "pi-graphite4"})
-table.insert(data.raw["technology"]["pi-tech-lipo-accu"].effects, {type = "unlock-recipe",recipe = "pi-graphite5"})
+end
+
 
 -- Enable productivity modules for lithium based intermediate products
-enable_productivity_recipes = {
-"pi-lipo-cell", "pi-lithium-plate", "pi-lithium-7-pellet", "pi-lithium-6-pellet", "pi-graphite", "pi-graphite2", "pi-graphite3", "pi-graphite4", "pi-graphite5"
-}
+if settings.startup["li-expand-prodmod"].value then
+   enable_productivity_recipes = {
+      "pi-lipo-cell", "pi-lithium-plate", "pi-lithium-7-pellet", "pi-lithium-6-pellet", "pi-graphite", "pi-graphite2", "pi-graphite3", "pi-graphite4", "pi-graphite5"
+   }
 
-for k, v in pairs(data.raw.module) do
-  if v.name:find("productivity%-module") and v.limitation then
-    for _, recipe in ipairs(enable_productivity_recipes) do
-      if data.raw["recipe"][recipe] then
-        table.insert(v.limitation, recipe)
+   for k, v in pairs(data.raw.module) do
+      if v.name:find("productivity%-module") and v.limitation then
+	 for _, recipe in ipairs(enable_productivity_recipes) do
+	    if data.raw["recipe"][recipe] then
+	       table.insert(v.limitation, recipe)
+	    end
+	 end
       end
-    end
-  end
+   end
 end
 
 ---------------[Electric-Weapons Integration]---------------
 -- Replace regular batteries with lithium polymer cells
-if (mods or script.active_mods)["Electric-Weapons"] then
+if settings.startup["li-elecweapons-support"].value and (mods or script.active_mods)["Electric-Weapons"] then
    data:extend{
       {
 	 type = "recipe",
@@ -299,7 +306,7 @@ end
 -- Replace regular batteries with lithium polymer cells
 -- Add some lithium polymer cell inputs to solar panelsa
 -- Make LiPo accumulators upgrade to advanced accumulators
-if (mods or script.active_mods)["Advanced-Electric-Revamped-v16"] then
+if settings.startup["li-advelec-support"].value and (mods or script.active_mods)["Advanced-Electric-Revamped-v16"] then
    data:extend{
       {
 	 type = "recipe",
@@ -387,4 +394,84 @@ if (mods or script.active_mods)["Advanced-Electric-Revamped-v16"] then
 
    -- Insert LiPo accumulators into the upgrade path for Advanced Solar HR
    data.raw["accumulator"]["pi-lipo-accu"].next_upgrade = "advanced-accumulator"
+end
+
+---------------[advanced-equipment Integration]---------------
+if settings.startup["li-advequip-support"].value and (mods or script.active_mods)["advanced-equipment"] then
+
+   -- Get rid of the battery-mk3
+   if data.raw.technology["battery-mk3-equipment"] then
+      data.raw.technology["battery-mk3-equipment"].enabled = false
+   end
+
+   if data.raw["recipe"]["battery-mk3-equipment"] then
+      data.raw["recipe"]["battery-mk3-equipment"].enabled = false
+   end
+
+   if data.raw.item["battery-mk3-equipment"] then
+      data.raw.item["battery-mk3-equipment"].enabled = false
+   end
+
+   -- Replace some ingredients with LiPo cells
+   data:extend{
+      {
+	 type = "recipe",
+	 name = "energy-shield-mk3-equipment",
+	 enabled = false,
+	 energy_required = 10,
+	 ingredients =
+	    {
+	       {"energy-shield-mk2-equipment", 5},
+	       {"pi-lipo-cell", 25},
+	       {"low-density-structure", 40},
+	       {"processing-unit", 75}
+	    },
+	 result = "energy-shield-mk3-equipment"
+      },
+      {
+	 type = "recipe",
+	 name = "fusion-reactor-mk2-equipment",
+	 enabled = false,
+	 energy_required = 10,
+	 ingredients =
+	    {
+	       {"low-density-structure", 400},
+	       {"fusion-reactor-equipment", 5},
+	       {"pi-lipo-cell", 50},
+	       {"processing-unit", 750}
+	    },
+	 result = "fusion-reactor-mk2-equipment"
+      },
+      {
+	 type = "recipe",
+	 name = "exoskeleton-mk2-equipment",
+	 enabled = false,
+	 energy_required = 10,
+	 ingredients =
+	    {
+	       {"exoskeleton-equipment", 5},
+	       {"low-density-structure", 80},
+	       {"processing-unit", 75},
+	       {"pi-lipo-cell", 50},
+	       {"electric-engine-unit", 125}
+	    },
+	 result = "exoskeleton-mk2-equipment"
+      },
+      {
+	 type = "recipe",
+	 name = "power-armor-mk3",
+	 enabled = false,
+	 energy_required = 40,
+	 ingredients = {
+	    {"effectivity-module-3", 20},
+	    {"speed-module-3", 20},
+	    {"low-density-structure", 150},
+	    {"electric-engine-unit", 200},
+	    {"pi-lipo-cell", 100},
+	    {"processing-unit", 275}
+	 },
+	 result = "power-armor-mk3",
+	 requester_paste_multiplier = 1
+      }      
+   }
 end

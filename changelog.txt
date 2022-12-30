@@ -1,4 +1,10 @@
 ---------------------------------------------------------------------------------------------------
+Version: 0.1.9
+Date: 12/30/2022
+  Changes:
+    - Added Advanced Equipment mod integration
+    - Added startup settings to selectively enable/disable recipes and mod integrations
+---------------------------------------------------------------------------------------------------
 Version: 0.1.7
 Date: 10/15/2022
   Changes:
