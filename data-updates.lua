@@ -1,7 +1,6 @@
 ---------------[Changes to Picklock's base setup]---------------
 -- Add alternate recipes for graphite
-if settings.startup["li-alt-graphite"].value then
-
+if settings.startup["li-alt-graphite"].value and (mods or script.active_mods)["PicksLiPoAccu"] then
    data:extend{
       {
 	 type = "recipe",
@@ -125,8 +124,17 @@ end
 -- Enable productivity modules for lithium based intermediate products
 if settings.startup["li-expand-prodmod"].value then
    enable_productivity_recipes = {
-      "pi-lipo-cell", "pi-lithium-plate", "pi-lithium-7-pellet", "pi-lithium-6-pellet", "pi-graphite", "pi-graphite2", "pi-graphite3", "pi-graphite4", "pi-graphite5"
+      "pi-lithium-plate", "pi-lithium-plate-2", "pi-lithium-plate-3", "pi-lithium-6-pellet", "pi-lithium-7-pellet"
    }
+
+   if (mods or script.active_mods)["PicksLiPoAccu"] then
+      table.insert(enable_productivity_recipes, "pi-lipo-cell");
+      table.insert(enable_productivity_recipes, "pi-graphite");
+      table.insert(enable_productivity_recipes, "pi-graphite2");
+      table.insert(enable_productivity_recipes, "pi-graphite3");
+      table.insert(enable_productivity_recipes, "pi-graphite4");
+      table.insert(enable_productivity_recipes, "pi-graphite5");
+   end
 
    for k, v in pairs(data.raw.module) do
       if v.name:find("productivity%-module") and v.limitation then
@@ -141,7 +149,8 @@ end
 
 ---------------[Electric-Weapons Integration]---------------
 -- Replace regular batteries with lithium polymer cells
-if settings.startup["li-elecweapons-support"].value and (mods or script.active_mods)["Electric-Weapons"] then
+if settings.startup["li-elecweapons-support"].value and (mods or script.active_mods)["Electric-Weapons"] and (mods or script.active_mods)["PicksLiPoAccu"] then
+
    data:extend{
       {
 	 type = "recipe",
@@ -306,7 +315,7 @@ end
 -- Replace regular batteries with lithium polymer cells
 -- Add some lithium polymer cell inputs to solar panelsa
 -- Make LiPo accumulators upgrade to advanced accumulators
-if settings.startup["li-advelec-support"].value and (mods or script.active_mods)["Advanced-Electric-Revamped-v16"] then
+if settings.startup["li-advelec-support"].value and (mods or script.active_mods)["Advanced-Electric-Revamped-v16"] and (mods or script.active_mods)["PicksLiPoAccu"] then
    data:extend{
       {
 	 type = "recipe",
@@ -397,7 +406,7 @@ if settings.startup["li-advelec-support"].value and (mods or script.active_mods)
 end
 
 ---------------[advanced-equipment Integration]---------------
-if settings.startup["li-advequip-support"].value and (mods or script.active_mods)["advanced-equipment"] then
+if settings.startup["li-advequip-support"].value and (mods or script.active_mods)["advanced-equipment"] and (mods or script.active_mods)["PicksLiPoAccu"] then
 
    -- Get rid of the battery-mk3
    if data.raw.technology["battery-mk3-equipment"] then

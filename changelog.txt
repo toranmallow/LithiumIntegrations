@@ -1,4 +1,9 @@
 ---------------------------------------------------------------------------------------------------
+Version: 0.2.1
+Date: 12/30/2022
+  Changes:
+    - Changed dependencies to require PicksBaseMod and make PicksLiPoAccu optional in prep for K2 support
+---------------------------------------------------------------------------------------------------
 Version: 0.1.9
 Date: 12/30/2022
   Changes:

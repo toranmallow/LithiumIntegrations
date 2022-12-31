@@ -1,9 +1,9 @@
 {
     "name": "LithiumIntegrations",
-    "version": "0.1.9",
+    "version": "0.2.1",
     "factorio_version": "1.1",
     "title": "Lithium Integrations",
     "author": "toran.mallow",
     "description": "Integrates Lithium and associated products from Picklock's Lithium Polymer Accumulator mod with other mods.",
-    "dependencies": ["PicksLiPoAccu >= 1.1.1", "? Electric-Weapons >= 2.0.0", "? Advanced-Electric-Revamped-v16 >= 0.6.9", "? advanced-equipment >= 0.0.8"]
+    "dependencies": ["PicksBaseMod >= 1.1.1", "? PicksLiPoAccu >= 1.1.1", "? Electric-Weapons >= 2.0.0", "? Advanced-Electric-Revamped-v16 >= 0.6.9", "? advanced-equipment >= 0.0.8"]
 }
