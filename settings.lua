@@ -36,5 +36,12 @@ data:extend({
     default_value = true,
     order = "b3",
   },
+  {
+    type = "bool-setting",
+    name = "li-k2-support",
+    setting_type = "startup",
+    default_value = true,
+    order = "b4",
+  },
 })
 

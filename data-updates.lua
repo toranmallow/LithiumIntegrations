@@ -484,3 +484,61 @@ if settings.startup["li-advequip-support"].value and (mods or script.active_mods
       }      
    }
 end
+
+
+---------------[Krastorio2 Integration]---------------
+if settings.startup["li-k2-support"].value and (mods or script.active_mods)["Krastorio2"] then
+   data:extend{
+      {
+	 type = "recipe",
+	 name = "lithium-chloride-2",
+	 category = "chemistry",
+	 icon = kr_items_with_variations_icons_path .. "lithium-chloride/lithium-chloride.png",
+	 icon_size = 64,
+	 icon_mipmaps = 4,
+	 energy_required = 10,
+	 enabled = false,
+	 always_show_made_in = true,
+	 always_show_products = true,
+	 allow_productivity = true,
+	 ingredients = {
+	    { type = "fluid", name = "sulfuric-acid", amount = 10 },
+	    { type = "fluid", name = "chlorine", amount = 5 },
+	    { type = "item", name = "pi-lithium-ore", amount = 5 },
+	 },
+	 results = {
+	    { type = "item", name = "lithium-chloride", amount = 1 },
+	 },
+	 subgroup = "raw-material",
+	 order = "h1[lithium-chloridez]",
+	 crafting_machine_tint = {
+	    primary = { r = 0.662, g = 0.807, b = 0.839, a = 0.000 },
+	    secondary = { r = 0.541, g = 0.647, b = 0.670, a = 0.250 },
+	    tertiary = { r = 0.454, g = 0.517, b = 0.529, a = 0.500 },
+	    quaternary = { r = 0.662, g = 0.807, b = 0.839, a = 0.900 },
+	 },
+      },
+
+   }
+
+   table.insert(data.raw["technology"]["kr-lithium-processing"].effects, {type = "unlock-recipe",recipe = "lithium-chloride-2"})
+
+
+   -- Enable productivity modules for lithium based intermediate products
+   if settings.startup["li-expand-prodmod"].value then
+      k2_enable_productivity_recipes = {
+	 "lithium-chloride-2",
+      }
+
+      for k, v in pairs(data.raw.module) do
+	 if v.name:find("productivity%-module") and v.limitation then
+	    for _, recipe in ipairs(k2_enable_productivity_recipes) do
+	       if data.raw["recipe"][recipe] then
+		  table.insert(v.limitation, recipe)
+	       end
+	    end
+	 end
+      end
+   end
+
+end
