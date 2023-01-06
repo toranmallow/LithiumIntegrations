@@ -507,7 +507,7 @@ if settings.startup["li-k2-support"].value and (mods or script.active_mods)["Kra
 	    { type = "item", name = "pi-lithium-ore", amount = 5 },
 	 },
 	 results = {
-	    { type = "item", name = "lithium-chloride", amount = 1 },
+	    { type = "item", name = "lithium-chloride", amount = 10 },
 	 },
 	 subgroup = "raw-material",
 	 order = "h1[lithium-chloridez]",
